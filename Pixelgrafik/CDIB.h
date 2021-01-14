@@ -1,5 +1,5 @@
 extern "C" {
-#include "jpeglib.h"
+	#include "jpeglib.h"
 }
 
 
@@ -29,12 +29,6 @@ public:
 	void slur(int percentage);
 	void oil(int radius, int intensityLevels);
 	void mosaic(int value);
-	CDIB* fft();
-	double* fftrealvektor(int COLOR);
-	double* fftimagvektor();
-	void fftcorrect();
-	void fftcopy(double* real, double* image, int COLOR);
-	void fftbackcopy(double* real, int COLOR, int fftwidth, int fftheight);
 	void merge(CString filename, int percentage);
 	void merge(CDIB& other, int percentage);
 	void matrix(int* matrix, int matrixsize, int koeff, char offset = 0);

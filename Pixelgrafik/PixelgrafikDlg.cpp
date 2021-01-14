@@ -302,9 +302,6 @@ BOOL CPixelgrafikDlg::OnCommand(WPARAM wParam, LPARAM lParam) {
 			m_dib.mosaic(percentageDlg.quality);
 		}
 		break;
-	case 1021: // inverse FFT
-		m_dib.fft();
-		break;
 	case 1022: // merge other CDIB
 		if (MergeFileDlg.DoModal() == IDOK)
 		{
@@ -327,9 +324,9 @@ BOOL CPixelgrafikDlg::OnCommand(WPARAM wParam, LPARAM lParam) {
 		}
 		break;
 	case 1023:
-		m_dib.Load((CString)"bild.bmp");
-		m_dib2.Load((CString)"bild.bmp");
-		m_dib3.Load((CString)"bild_vertikal.bmp");
+		m_dib.Load((CString)L"bild_5.bmp");
+		m_dib2.Load((CString)L"bild_5.bmp");
+		m_dib3.Load((CString)L"bild_vertikal.bmp");
 		RedrawWindow();
 
 		if (percentageDlg.DoModal() == IDOK) {
@@ -363,7 +360,6 @@ void CPixelgrafikDlg::create_popup_menu() {
 	menu.AppendMenu(MF_STRING, 1001, L"Laden ...");
 	menu.AppendMenu(MF_STRING, 1002, L"Speichern ...");
 
-	// Seperatorline
 	menu.AppendMenu(MF_SEPARATOR, 0, L"");
 
 	menu.AppendMenu(MF_STRING, 1003, L"Aufhellen");
@@ -372,19 +368,16 @@ void CPixelgrafikDlg::create_popup_menu() {
 	menu.AppendMenu(MF_STRING, 1006, L"Negativ");
 	menu.AppendMenu(MF_STRING, 1007, L"mehr Kontrast");
 
-	// Seperatorline
 	menu.AppendMenu(MF_SEPARATOR, 0, L"");
 
 	menu.AppendMenu(MF_STRING, 1008, L"Rotebene");
 	menu.AppendMenu(MF_STRING, 1009, L"Gruenebene");
 	menu.AppendMenu(MF_STRING, 1010, L"Blauebene");
 
-	// Seperatorline
 	menu.AppendMenu(MF_SEPARATOR, 0, L"");
 
 	menu.AppendMenu(MF_STRING, 1011, L"Histogramm");
 
-	// Seperatorline
 	menu.AppendMenu(MF_SEPARATOR, 0, L"");
 
 	menu.AppendMenu(MF_STRING, 1012, L"Schaerfen");
@@ -393,7 +386,6 @@ void CPixelgrafikDlg::create_popup_menu() {
 	menu.AppendMenu(MF_STRING, 1015, L"Kantenerkennung");
 	menu.AppendMenu(MF_STRING, 1023, L"Blending");
 
-	// Seperatorline
 	menu.AppendMenu(MF_SEPARATOR, 0, L"");
 
 	menu.AppendMenu(MF_STRING, 1016, L"Flip horizontal");
@@ -402,9 +394,7 @@ void CPixelgrafikDlg::create_popup_menu() {
 	menu.AppendMenu(MF_STRING, 1019, L"Oelgemaelde");
 	menu.AppendMenu(MF_STRING, 1020, L"Mosaik");
 
-	// Seperatorline
 	menu.AppendMenu(MF_SEPARATOR, 0, L"");
 
-	menu.AppendMenu(MF_STRING, 1021, L"(inverse) FFT");
 	menu.AppendMenu(MF_STRING, 1022, L"Verschmelzen");
 }
